@@ -1,19 +1,19 @@
 const express = require('express');
-const exphbs = require('express-handlebars');
+const path = require('path');
 
 
 const app = express();
 
-app.engine('handlebars', exphbs({defaultLayout: 'loginlayout'}));
-app.set('view engine', 'handlebars');
+app.set('view engine', 'ejs') 
+app.set("views", path.resolve(__dirname, "views")); 
 
 app.get('/', (req, res) => {
-    res.render('signup');
+    res.render('files');
 });
 
 
 const PORT = 5000;
 
 app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
+    console.log(`Corriendo en puerto ${PORT}`);
 });
